@@ -1,13 +1,5 @@
 'use strict';
 
-// console.log(document.querySelector('.message').textContent);
-// document.querySelector('.message').textContent = 'Número Correto!!🏆🏆';
-
-// document.querySelector('.number').textContent = 13;
-//
-
-// console.log(document.querySelector('.guess').value);
-
 const secretNumber = Math.trunc(Math.random() * 20) + 1;
 let score = 20;
 
@@ -49,6 +41,18 @@ document.querySelector('.check').addEventListener('click', function () {
 
 document.querySelector('.again').addEventListener('click', function () {
   location.reload();
+});
+
+const guessInput = document.querySelector('.guess');
+
+guessInput.addEventListener('input', function () {
+  if (this.value > 20) {
+    this.value = 20;
+  }
+
+  if (this.value < 1 && this.value !== '') {
+    this.value = 1;
+  }
 });
 
 console.log(secretNumber);
